@@ -44,14 +44,11 @@
 
     daum.postcode.load(function () {
       function callbackMessage(message) {
-        try {
-          onComplete.postMessage(message);
-        } catch (err) {
-          window.flutter_inappwebview.callHandler('onComplete', message);
-        }
+
       }
       new daum.Postcode({
         oncomplete: function (data) {
+          console.log(data)
           // JS callback
           if (enableKakao) {
             kakao.maps.load(function () {
